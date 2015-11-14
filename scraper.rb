@@ -1,6 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require 'rest-client'
 require 'scraperwiki'
 require 'wikidata/fetcher'
 require 'nokogiri'
@@ -34,3 +35,5 @@ def fetch_info(names)
 end
 
 fetch_info wikinames_from('https://mn.wikipedia.org/wiki/Загвар:2012-2016_оны_УИХ-ын_гишүүд')
+warn RestClient.post ENV['MORPH_REBUILDER_URL'], {} if ENV['MORPH_REBUILDER_URL']
+
