@@ -9,11 +9,7 @@ mn_names = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[@class="navbox"]//table//tr[td]//td[1]//a[not(@class="new")]/@title',
 ) 
 
-en_names = EveryPolitician::Wikidata.wikipedia_xpath( 
-  url: 'https://en.wikipedia.org/wiki/List_of_MPs_elected_in_the_Mongolian_legislative_election,_2012',
-  after: '//span[@id="Party_list"]',
-  xpath: '//table//td[1]//a[not(@class="new")]/@title',
-) 
+en_names = EveryPolitician::Wikidata.morph_wikinames(source: 'tmtmtmtm/mongolia-khurai-wp', column: 'wikiname')
 
 EveryPolitician::Wikidata.scrape_wikidata(names: { mn: mn_names, en: en_names })
 warn EveryPolitician::Wikidata.notify_rebuilder
