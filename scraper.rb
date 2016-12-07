@@ -9,6 +9,6 @@ mn_names = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[@class="navbox"]//table//tr[td]//td[1]//a[not(@class="new")]/@title',
 ) 
 
-en_names = EveryPolitician::Wikidata.morph_wikinames(source: 'tmtmtmtm/mongolia-khurai-wp', column: 'wikiname')
+en_names = EveryPolitician::Wikidata.morph_wikinames(source: 'everypolitician-scrapers/mongolia-khurai-wp-multiple-terms', column: 'wikiname')
 
 EveryPolitician::Wikidata.scrape_wikidata(names: { mn: mn_names, en: en_names })
